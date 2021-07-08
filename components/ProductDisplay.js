@@ -20,10 +20,10 @@ app.component('product-display', {
                     <p v-else> Out of Stock</p>
                     <p> Shipping: {{shipping}} </p>
 
-                    <div v-for="(variant, index) in variants" : key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color }">
+                    <div v-for="(variant, index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color }">
                     </div>
 
-                    <button class=" button" : disabled='!inStock' :class="{disabledButton: !inStock}" v-on:click="addToCart ">
+                    <button class="button"  :class="{disabledButton: !inStock}" :disabled='!inStock' v-on:click="addToCart ">
                         Add to Cart
                     </button>
                 </div>
@@ -47,7 +47,7 @@ app.component('product-display', {
     },
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart',this.variants[this.selectedVariant].id)
         },
         updateImage(variantImage) {
             this.image = variantImage
