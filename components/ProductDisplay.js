@@ -1,4 +1,13 @@
 app.component('product-display', {
+    props: {
+        premium: {
+            type: Boolean,
+            require: true
+        },
+        productdetail:{
+            type : String
+        }
+    },
     template:
         /*html*/
         `<div class="product-display">
@@ -8,8 +17,10 @@ app.component('product-display', {
                 </div>
                 <div class="product-info">
                     <h1> {{ title }} </h1>
+                    <p> {{productDetails}} </p>
                     <p v-if="inStock"> In Stock </p>
                     <p v-else> Out of Stock</p>
+                    <p> Shipping: {{shipping}} </p>
 
                     <div v-for="(variant, index) in variants" : key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color }">
                     </div>
@@ -61,6 +72,15 @@ app.component('product-display', {
             if (this.onSale) {
                 return this.brand + ' ' + this.product + ' is on sale!'
             }
+        },
+        shipping(){
+            if(this.premium){
+                return 'Free'
+            }
+            return 30
+        },
+        productDetails(){
+            return this.productdetail
         }
     }
 })
