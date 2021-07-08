@@ -26,6 +26,10 @@ app.component('product-display', {
                     <button class="button"  :class="{disabledButton: !inStock}" :disabled='!inStock' v-on:click="addToCart ">
                         Add to Cart
                     </button>
+
+                    <button class="button" v-on:click="removeCart ">
+                        Clear cart
+                    </button>
                 </div>
             </div>
         </div>`
@@ -54,6 +58,9 @@ app.component('product-display', {
         },
         updateVariant(index) {
             this.w = index
+        },
+        removeCart(){
+            this.$emit('remove-from-Cart')
         }
     },
     computed: {
