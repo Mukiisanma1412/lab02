@@ -65,7 +65,7 @@ app.component('product-display', {
             this.image = variantImage
         },
         updateVariant(index) {
-            this.w = index
+            this.selectedVariant = index
         },
         removeCart(){
             this.$emit('remove-from-Cart')
