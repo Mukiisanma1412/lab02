@@ -32,7 +32,7 @@ app.component('product-display', {
                     </button>
                 </div>
 
-               <review-list  :reviews="reviews"></review-list> 
+               <review-list v-if="reviews.length" :reviews="reviews"></review-list> 
                 <review-Form @review-submitted="addReview"></review-Form>
                         
                 </div>
