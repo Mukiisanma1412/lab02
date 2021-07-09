@@ -1,5 +1,5 @@
 app.component('review-Form', {
-   
+
     template:
         /*html*/
         `<form class="review-form" @submit.prevent="onSubmit">
@@ -17,15 +17,16 @@ app.component('review-Form', {
                 <option>2</option>
                 <option>1</option>
             </select>
-       
-               
-       
+            
+            <label for="recom">Would you recommend this product?</label>
+                <input type="radio" id="recom" name="recom" value="recom" v-model="recom">
+                <label for="recom">YES</label>
 
             <input class="button" type="submit" value="Submit">
         </form>
         `
     ,
-    data(){
+    data() {
         return {
             name: '',
             review: '',
@@ -33,21 +34,28 @@ app.component('review-Form', {
             recommend: null
         }
     },
-    methods:{
-        onSubmit(){
-            // if (this.name ===''||this.review===''||this.rating===null){
-            //     alert('review is incomplete. please fill out every fiend.')
-            //     return
-            // } 
+    methods: {
+        onSubmit() {
+            if (this.name === '' || this.review === '' || this.rating === null) {
+                alert('review is incomplete. please fill out every fiend.')
+                return
+            }
+
+            check = null
+            if (this.recom == 'recom') {
+                this.check = true
+            } else {
+                this.check = false
+            } 
             
-           
-                let productReview ={
+            let productReview = {
                     name: this.name,
                     review: this.review,
                     rating: this.rating,
-                    recommend: false 
-                
-            }
+                    recommend: this.check
+                }
+
+
 
             this.$emit('review-submitted', productReview)
 
