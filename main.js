@@ -3,8 +3,7 @@ const app = Vue.createApp({
         return{
             cart: [],
             premium: true,
-            productdetail : 'blah blah blah'
-        } 
+            productdetail : 'blah blah blah Product goes here'      } 
     },
     methods: {
         updateCart(id){
