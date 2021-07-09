@@ -15,7 +15,9 @@ app.component('product-display', {
                 </div>
                 <div class="product-info">
                     <h1> {{ title }} </h1>
-                    
+
+                    <product-details :productdetail="productdetail"></product-details>
+                     
                     <p v-if="inStock"> In Stock </p>
                     <p v-else> Out of Stock</p>
                     <p> Shipping: {{shipping}} </p>
@@ -51,7 +53,8 @@ app.component('product-display', {
             ],
             selectedVariant: 0,
             reviews:[],
-            onSale: true
+            onSale: true,
+            productdetail : 'blah blah blah Product goes here' 
         }
     },
     methods: {
@@ -91,23 +94,7 @@ app.component('product-display', {
                 return 'Free'
             }
             return 30
-        } 
-    }
-})
-
-app.component('product-details', {
-    props: {
-        productdetail:{
-            type : String
-        }
-    },
-    template:
-        /*html*/
-        `<p> {{productDetails}} </p>`
-    ,
-    computed:{
-        productDetails(){
-            return this.productdetail
-        }
+        },
+    
     }
 })

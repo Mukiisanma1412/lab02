@@ -17,13 +17,14 @@
         <div class="cart">Cart({{ carts }})</div>
 
         <product-display :premium="premium" @add-to-cart="updateCart" @remove-from-Cart="removeCart" ></product-display>
-        <product-details :productdetail="productdetail"></product-details>
+
     </div>
 
     <!-- Import Js -->
     <script src="./main.js "></script>
     <!-- Import Components -->
     <script src="./components/ProductDisplay.js"></script>
+    <script src="./components/product-details.js"></script>
     <script src="./components/Review-Form.js"></script>
     <script src="./components/ReviewList.js"></script>
     <script>
