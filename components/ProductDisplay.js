@@ -17,7 +17,7 @@ app.component('product-display', {
                     <h1> {{ title }} </h1>
 
                     <product-details :productdetail="productdetail"></product-details>
-                     
+                    <p v-if="onSale"> onSale </p>
                     <p v-if="inStock"> In Stock </p>
                     <p v-else> Out of Stock</p>
                     <p> Shipping: {{shipping}} </p>
